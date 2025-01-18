@@ -74,17 +74,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'nc_tutorials.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'NAME': 'nc_tutorials_db',
+        'USER': 'postgres',
+        'PASSWORD': 'admin123',
+        'HOST': 'nctutorials.c58o08ioemil.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -128,9 +129,9 @@ USE_TZ = True
 if DEBUG:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATIC_ROOT = [os.path.join(BASE_DIR, "static")]
 
-
+    
 
 STATIC_URL = '/static/'
 
